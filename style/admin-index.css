@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  background-color: #333;
+  color: #fff;
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar a{
+    color: white;
+    text-decoration: none;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+.menu-item {
+  padding: 10px;
+  border-bottom: 1px solid #555;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #555;
+}
+
+.content {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+    right: 0;
+    bottom: 100%;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #fff;
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.dashboard-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin-right: 10px;
+}
+
+.admin-name {
+    padding: 10px;
+    background-color: #555;
+}
