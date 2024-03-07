@@ -17,7 +17,7 @@ if(!isset($_SESSION['username'])){
         <h1>Insert Job Experience</h1>
     </header>
     <div class="container">
-        <form action="#" method="post">
+        <form action="./insert-job-experience.php" method="post">
             <label for="job_title">Job Title:</label>
             <input type="text" id="job_title" name="job_title" required>
             
@@ -27,17 +27,34 @@ if(!isset($_SESSION['username'])){
             <label for="location">Location:</label>
             <input type="text" id="location" name="location" required>
             
-            <label for="start_date">Start Date:</label>
-            <input type="text" id="start_date" name="start_date" placeholder="YYYY-MM-DD" required>
-            
-            <label for="end_date">End Date:</label>
-            <input type="text" id="end_date" name="end_date" placeholder="YYYY-MM-DD">
-            
             <label for="description">Description:</label>
             <textarea id="description" name="description" rows="4" required></textarea>
             
-            <input type="submit" value="Submit">
+            <input type="submit" name="submit" value="Submit">
         </form>
     </div>
 </body>
 </html>
+
+<?php
+
+include("./config.php");
+if(isset($_POST['submit'])){
+    $job_title=$_POST['job_title'];
+    $company=$_POST['company'];
+    $location=$_POST['location'];
+    $description=$_POST['description'];
+
+    $insertquery="insert into experience (jobtitle, company, location, description) values('$job_title', '$company', '$location', '$description')";
+    $res=mysqli_query($con, $insertquery);
+    if($res){
+        header('location: ./blog.php');
+    }else{
+        ?>
+        <script>
+            alert("reminder is not inserted properly");
+        </script>
+        <?php
+    }
+}
+?>

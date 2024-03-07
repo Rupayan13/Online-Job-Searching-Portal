@@ -20,6 +20,7 @@ session_start();
             <li><a href="./index.php">Home</a></li>
             <li><a href="./search-jobs.php">Search Jobs</a></li>
             <li><a href="./insert-job-experience.php">Post a Experience</a></li>
+            <li><a href="./blog.php">View Experiences</a></li>
             <li><a href="./contact.php">Contact</a></li>
             <?php if(!isset($_SESSION['username'])){ ?>
                 <li><a href="./login.php">Login</a></li>

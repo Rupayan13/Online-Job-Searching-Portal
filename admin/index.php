@@ -15,17 +15,26 @@ if(!isset($_SESSION['username'])){
 </head>
 <body>
     <?php include("./sidebar.php"); ?>
+    <?php
+    require("../config.php");
+    $showuserquery="select count(*) as u from user";
+    $user_show = mysqli_query($con, $showuserquery);
+    $user = mysqli_fetch_array($user_show);
+    $showjobquery="select count(*) as j from jobopening";
+    $job_show = mysqli_query($con, $showjobquery);
+    $job = mysqli_fetch_array($job_show);
+    ?>
     <div class="main-content">
         <h1>Admin Panel - Dashboard</h1>
         <div class="content">
             <div class="dashboard-stats">
                 <div class="stat-box">
                     <h2>Total Users</h2>
-                    <p>100</p>
+                    <p><?php echo $user['u']; ?></p>
                 </div>
                 <div class="stat-box">
                     <h2>Total Jobs</h2>
-                    <p>50</p>
+                    <p><?php echo $job['j']; ?></p>
                 </div>
             </div>
             <!-- Additional dashboard content goes here -->

@@ -29,16 +29,24 @@ if(!isset($_SESSION['username'])){
                 </tr>
             </thead>
             <tbody>
+                <?php
+                include("../config.php");
+                $selectquery="select * from user ";
+                $query=mysqli_query($con, $selectquery);
+                $nums = mysqli_num_rows($query);
+                while($res = mysqli_fetch_array($query)){
+                ?>
                 <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                    <td>Admin</td>
+                    <td><?php echo $res['id']; ?></td>
+                    <td><?php echo $res['fullname']; ?></td>
+                    <td><?php echo $res['email']; ?></td>
+                    <td>User</td>
                     <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <button><a style="color:black; text-decoration:none;" href="./edit-user.php?id=<?php echo $res['id']; ?>">Edit</a></button>
+                        <button><a style="color:black; text-decoration:none;" href="./delete-user.php?id=<?php echo $res['id']; ?>">Delete</a></button>
                     </td>
                 </tr>
+                <?php } ?>
                 <!-- Add more rows for other users -->
             </tbody>
         </table>
